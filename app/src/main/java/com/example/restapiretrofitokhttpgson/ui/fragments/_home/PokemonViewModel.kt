@@ -1,5 +1,7 @@
-package com.example.restapiretrofitokhttpgson.ui.fragments
+package com.example.restapiretrofitokhttpgson.ui.fragments._home
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -18,17 +20,19 @@ class PokemonViewModel : ViewModel() {
     val errorLiveData : LiveData<String> = _errorLiveData
 
     init {
-        getPokemon()
+        Log.e(TAG, "View Model create")
     }
 
-    fun getPokemon() {
+      fun getPokemon(offset : Int, limit : Int) {
         repository.getPokemon(
             onSuccess = {
                 _pokemonLiveData.value = it
             },
             onFailure = {
                 _errorLiveData.value = it
-            }
+            },
+            offset = offset,
+            limit = limit
         )
     }
 }

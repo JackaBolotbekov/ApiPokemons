@@ -7,7 +7,12 @@
 
     <fragment
         android:id="@+id/pokemonFragment"
-        android:name="com.example.restapiretrofitokhttpgson.ui.fragments.PokemonFragment"
+        android:name="com.example.restapiretrofitokhttpgson.ui.fragments._home.PokemonFragment"
         android:label="fragment_pokemon"
         tools:layout="@layout/fragment_pokemon" />
+    <fragment
+        android:id="@+id/testFragment"
+        android:name="com.example.restapiretrofitokhttpgson.ui.fragments.detail.DetailFragment"
+        android:label="fragment_test"
+        tools:layout="@layout/fragment_detail" />
 </navigation>

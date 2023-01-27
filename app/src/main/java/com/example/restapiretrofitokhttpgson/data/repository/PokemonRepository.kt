@@ -14,8 +14,10 @@ class PokemonRepository (private val pokemonApiService: PokemonApiService) {
     fun getPokemon(
         onSuccess: (pokemonList: List<Pokemon>?) -> Unit,
         onFailure: (message: String) -> Unit,
+        offset: Int,
+        limit: Int
     ) {
-        pokemonApiService.getPokemon().enqueue(object : retrofit2.Callback<PokemonResponse> {
+        pokemonApiService.getPokemon(offset = offset, limit = limit).enqueue(object : retrofit2.Callback<PokemonResponse> {
             override fun onResponse(
                 call: Call<PokemonResponse>,
                 response: Response<PokemonResponse>
